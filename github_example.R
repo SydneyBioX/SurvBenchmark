@@ -1,10 +1,12 @@
-# this is the example to run those methods and get corresponding evaluation results
-# in SurvBenchmark using published gene expression dataset: Ovairan data
-# created by Yunwei Zhang, 20210608
+# this shows how to use SurvBenchmark 
+# this is an example to run those methods and get corresponding evaluation results 
+# here, we use the published gene expression dataset: Ovarian data
+# updated by Yunwei Zhang, 20210705
 
-.libPaths("/dskh/nobackup/yunwei")
-setwd("/dskh/nobackup/yunwei/Analysis_yw/benchmark/202012summaryresult")
+.libPaths("/dskh/nobackup/yunwei") #setting R library path, you need to change it correspondingly
+setwd("/dskh/nobackup/yunwei/Analysis_yw/benchmark/202012summaryresult") #setting R working directory, you need to change it correspondingly
 
+#load all the packages first
 library(dplyr)
 library(survival)
 library(glmnet)
@@ -32,11 +34,9 @@ library(pbmcapply)
 library(MTLR)
 library(profmem)
 library(keras)
-#install_keras()
 library(pseudo)
 library(survivalROC)
 library(survival)
-#library(survcomp)#cran package moved to bioconductor
 library(survAUC)
 library(CoxBoost)
 library(limma)
@@ -47,6 +47,7 @@ library(GenAlgo)
 library(survivalsvm)
 library(rmatio)
 
+# import all those source files from the folder <functions>
 source("original_cox_fun.R")
 source("p_cox1_fun.R")
 source("p_cox2_fun.R")
@@ -70,6 +71,7 @@ source("glmnet_lassocox_fun.R")
 source("glmnet_ridge_fun.R")
 source("glmnet_en_fun.R")
 
+# get the Ovarian gene expression data 
 library(curatedOvarianData)
 data("GSE49997_eset")
 expmatrix2=exprs(GSE49997_eset)
@@ -100,47 +102,7 @@ formula4=Surv(time,status)~1
 form1=as.formula(~.)
 timess=seq(as.numeric(summary(cancerdt2_1$time)[2]),as.numeric(summary(cancerdt2_1$time)[5]),(as.numeric(summary(cancerdt2_1$time)[5])-as.numeric(summary(cancerdt2_1$time)[2]))/14)
 
-#classical feature selection+Cox cant run
-# #2
-# start_time <- Sys.time()
-# Rprof(tf <- "rprof.log",memory.profiling=TRUE)
-# cox1 <- pbmcapply::pbmclapply(1:20, bw_cox1_fun,(dim(cancerdt2_1)[2]-3),5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
-# Rprof(NULL)
-# mm<-summaryRprof(tf,memory = "both")
-# mm
-# saveRDS(mm,"gse1_bw_cox1m.rds")
-# saveRDS(cox1,"gse1_bw_cox1.rds")
-# cox1<-readRDS("gse1_bw_cox1.rds")
-# head(cox1)
-# end_time <- Sys.time()
-# saveRDS(end_time - start_time,"gse1_bw_cox1t.rds")
-# #3
-# start_time <- Sys.time()
-# Rprof(tf <- "rprof.log",memory.profiling=TRUE)
-# cox1 <- pbmcapply::pbmclapply(1:20, bw_cox2_fun,(dim(cancerdt2_1)[2]-3),5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
-# Rprof(NULL)
-# mm<-summaryRprof(tf,memory = "both")
-# mm
-# saveRDS(mm,"gse1_bw_cox2m.rds")
-# saveRDS(cox1,"gse1_bw_cox2.rds")
-# cox1<-readRDS("gse1_bw_cox2.rds")
-# head(cox1)
-# end_time <- Sys.time()
-# saveRDS(end_time - start_time,"gse1_bw_cox2t.rds")
-# #4
-# start_time <- Sys.time()
-# Rprof(tf <- "rprof.log",memory.profiling=TRUE)
-# cox1 <- pbmcapply::pbmclapply(1:20, bw_cox3_fun,(dim(cancerdt2_1)[2]-3),5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
-# Rprof(NULL)
-# mm<-summaryRprof(tf,memory = "both")
-# mm
-# saveRDS(mm,"gse1_bw_cox3m.rds")
-# saveRDS(cox1,"gse1_bw_cox3.rds")
-# cox1<-readRDS("gse1_bw_cox3.rds")
-# head(cox1)
-# end_time <- Sys.time()
-# saveRDS(end_time - start_time,"gse1_bw_cox3t.rds")
-#5:
+# lasso_cox model
 start_time <- Sys.time()
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, glmnet_lassocox_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
@@ -153,7 +115,7 @@ cox1<-readRDS("gse1_p_cox1.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_p_cox1t.rds")
-#6
+# ridge_cox model
 start_time <- Sys.time()
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, glmnet_ridge_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
@@ -166,7 +128,7 @@ cox1<-readRDS("gse1_p_cox2.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_p_cox2t.rds")
-#7
+# elastic_net_cox method
 start_time <- Sys.time()
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, glmnet_en_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
@@ -179,9 +141,8 @@ cox1<-readRDS("gse1_p_cox3.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_p_cox3t.rds")
-#8
+# random survival forest
 start_time <- Sys.time()
-#bw_cox3_fun(1,veteran,5,fitform_ogl,formula1,formula2,formula3,formula4,timess)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, rsf1_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
 Rprof(NULL)
@@ -193,9 +154,8 @@ cox1<-readRDS("gse1_rsf1.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_rsf1t.rds")
-#9
+# random survival forest
 start_time <- Sys.time()
-#bw_cox3_fun(1,veteran,5,fitform_ogl,formula1,formula2,formula3,formula4,timess)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, rsf2_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
 Rprof(NULL)
@@ -207,9 +167,8 @@ cox1<-readRDS("gse1_rsf2.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_rsf2t.rds")
-#10:failed:32%, ETA 13:52:53
+# mtlr
 start_time <- Sys.time()
-#bw_cox3_fun(1,veteran,5,fitform_ogl,formula1,formula2,formula3,formula4,timess)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, mtlr_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
 Rprof(NULL)
@@ -221,15 +180,11 @@ cox1<-readRDS("gse1_mtlr.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_mtlrt.rds")
-#12
+# CoxBoost
 start_time <- Sys.time()
 time1=timess[3]
 stepnumber=10
 penaltynumber=100
-#data=cancerdt2_1
-#cvK=5
-#j=1
-#cox_boost_fun(1,cancerdt2_1,5,fitform_ogl,formula1,formula2,formula3,formula4,time1,timess,stepnumber,penaltynumber)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, cox_boost_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5, fitform_ogl,formula1,formula2,formula3,formula4,time1,timess,stepnumber,penaltynumber, mc.cores = 15)
 Rprof(NULL)
@@ -242,12 +197,8 @@ head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_coxboostt.rds")
 
-
-
-
-#10:failed:32%, ETA 13:52:53
+# mtlr (GA) 
 start_time <- Sys.time()
-#bw_cox3_fun(1,veteran,5,fitform_ogl,formula1,formula2,formula3,formula4,timess)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, ga_mtlr_fun,cancerdt2_1,5, 16047,5,20,timess, mc.cores = 15)
 Rprof(NULL)
@@ -259,15 +210,11 @@ cox1<-readRDS("gse1_ga_mtlr.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_ga_mtlrt.rds")
-#12
+# CoxBoost (GA)
 start_time <- Sys.time()
 time1=timess[3]
 stepnumber=10
 penaltynumber=100
-#data=cancerdt2_1
-#cvK=5
-#j=1
-#cox_boost_fun(1,cancerdt2_1,5,fitform_ogl,formula1,formula2,formula3,formula4,time1,timess,stepnumber,penaltynumber)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, ga_cox_boost_fun,cancerdt2_1,5, 16047,5,20,time1,timess,stepnumber,penaltynumber, mc.cores = 15)
 Rprof(NULL)
@@ -280,8 +227,7 @@ head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_coxboostt.rds")
 
-#2
-#ga_original_cox_fun(1,cancerdt2_1,5,16047,10,20,timess)
+# Cox (GA)
 start_time <- Sys.time()
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, ga_original_cox_fun,cancerdt2_1,5, 16047,10,20,timess, mc.cores = 15)
@@ -295,7 +241,7 @@ head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_ga_cox1t.rds")
 
-#4
+# SurvivalSVM
 cancerdt2_1$time=as.numeric(cancerdt2_1$time)
 #survivalsvm_fun(1,cancerdt2_1,5, fitform_ogl,formula1,formula2,formula3, formula4, timess)
 start_time <- Sys.time()
@@ -312,9 +258,8 @@ end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_survivalsvmt.rds")
 
 
-#10:failed:32%, ETA 13:52:53
+# mtlr (DE)
 start_time <- Sys.time()
-#bw_cox3_fun(1,veteran,5,fitform_ogl,formula1,formula2,formula3,formula4,timess)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, mtlr_fun2,cancerdt2_1,5, 16047,1000,timess, mc.cores = 15)
 Rprof(NULL)
@@ -326,15 +271,11 @@ cox1<-readRDS("gse1_limma_mtlr.rds")
 head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_limma_mtlrt.rds")
-#12
+# CoxBoost (DE)
 start_time <- Sys.time()
 time1=timess[3]
 stepnumber=10
 penaltynumber=100
-#data=cancerdt2_1
-#cvK=5
-#j=1
-#cox_boost_fun(1,cancerdt2_1,5,fitform_ogl,formula1,formula2,formula3,formula4,time1,timess,stepnumber,penaltynumber)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, cox_boost_fun2,cancerdt2_1,5, 16047,1000,time1,timess,stepnumber,penaltynumber, mc.cores = 15)
 Rprof(NULL)
@@ -347,12 +288,8 @@ head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_limma_coxboostt.rds")
 
-#12
+# deepsurv
 start_time <- Sys.time()
-#data<-trail1_2
-#cvK=5
-#j=1
-#deepsurv_fun(1,trail1_2,5,fitform_ogl,formula1,formula2,formula3,formula4,timess)
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, deepsurv_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
 Rprof(NULL)
@@ -365,12 +302,8 @@ head(cox1)
 end_time <- Sys.time()
 saveRDS(end_time - start_time,"gse1_deepsurvt.rds")
 
-#13
+# deephit
 start_time <- Sys.time()
-#data<-protein3_2
-#cvK=5
-#j=1
-
 Rprof(tf <- "rprof.log",memory.profiling=TRUE)
 cox1 <- pbmcapply::pbmclapply(1:20, deephit_fun,cancerdt2_1[,-dim(cancerdt2_1)[2]],5, fitform_ogl,formula1,formula2,formula3,formula4,timess, mc.cores = 15)
 Rprof(NULL)
