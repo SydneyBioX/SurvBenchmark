@@ -3,7 +3,6 @@ This file contains the tables for the datasets and methods we benchmarked.
 **Table1.** Datasets summary
 
 | **Datasetssummary** |
-| --- |
 | **Dataset (name usedinthispaper)** | **Number ofobservations** | **No. ofvariables** | **Type ofdata** | **Censoringrate(rounded to 4decimalplaces)** **Reference** |
 | Melanoma\_itraq | 41 | 642 | Omics | 0.4146 | Wang,K.Y.X. et al. Cross-Platform Omics Prediction procedure: agame changer for implementing precision medicine in patientswithstage-IIImelanoma.bioRxiv2020.12.09.415927;doi:[https://doi.org/10.1101/2020.12.09.415927](https://doi.org/10.1101/2020.12.09.415927) |
 | Melanoma\_nano | 45 | 206 | Omics | 0.4222 | Wang,K.Y.X. et al. Cross-Platform Omics Prediction procedure: agame changer for implementing precision medicine in patientswithstage-IIImelanoma.bioRxiv2020.12.09.415927;doi:[https://doi.org/10.1101/2020.12.09.415927](https://doi.org/10.1101/2020.12.09.415927) |
@@ -22,7 +21,6 @@ This file contains the tables for the datasets and methods we benchmarked.
 | UNOS\_Kidney | 3000 | 101 | Clinical | 0.7350 | OPTNdata (https://optn.transplant.hrsa.gov/) |
 | ANZ | 3323 | 40 | Clinical | 0.8739 | ANZDATA (https://www.anzdata.org.au/) |
 
-Data table showing the names of datasets used in this paper in the first column. Datasets are ordered by the number ofobservations(secondcolumn,fromsmallest to largest).Censoring rateisroundedto 4decimal places.
 
 
 **Table2.** Summary of methods used in this study
@@ -52,4 +50,3 @@ Data table showing the names of datasets used in this paper in the first column.
 |DeepSurv(Deeplearningsurvival model) |DeepSurv |deepsurv |survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
 |DeepHit(Deeplearningsurvival model) |DeepHit |deephit |survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
 
-Data table showing the methods used in this benchmark study. R packages and functions with parameters are listed.
