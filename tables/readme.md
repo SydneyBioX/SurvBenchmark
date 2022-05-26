@@ -41,11 +41,7 @@ Data table showing the names of datasets used in this paper in the first column.
 | Elasticnetcox (for omics datasets) | EN\_Cox | glmnet | glmnet | alpha=0.5,nfolds=5,type.measure=&quot;C&quot; |
 | Randomsurvivalforest | RSF | rfsrc | RandomSurvivalForest | Default:ntree=1000,mtry=10 |
 | Multitasklogisticregressionmethod | MTLR | mtlr | MTLR | C1=1 |
-|
-DNNSurv (Deeplearningsurvivalmodel) |
-DNNSurv | multiplefunctionsasinGithubcodes | DNNSurv
- |
-Default: no parameter arguments to be changed by users |
+|DNNSurv (Deeplearningsurvivalmodel) |DNNSurv | multiplefunctionsasinGithubcodes | DNNSurv|Default: no parameter arguments to be changed by users |
 | Boostingcoxmodel | CoxBoost | coxboost | CoxBoost | stepnumber=10, penalty number=100 |
 | Coxmodelwithgeneticalgorithmasfeatureselectionmethod | Cox (GA) | GenAlg | GenAlgo | n.features=10(foromics),n.features=4(forclinical),generation\_num=20 |
 | Multitasklogistic regressionmodelwithgenetic algorithmas featureselectionmethod | MTLR(GA) | GenAlg | GenAlgo | n.features=10 (foromics),n.features=4 (forclinical),generation\_num=20 |
@@ -53,19 +49,7 @@ Default: no parameter arguments to be changed by users |
 | Multitasklogisticregressionmodelwithrankingbasedmethodasfeatureselectionmeth | MTLR(DE) | lmFit,eBayes | limma | n.features=10(foromics),n.features=4(forclinical) |
 | Boostingcox modelwithrankingbasedmethodas feature selectionmethod | CoxBoost (DE) | lmFit,eBayes | limma | n.features=10(foromics),n.features=4(forclinical) |
 | Survival supportvectormachine | SurvivalSVM | survivalsvm | survivalsvm | Default: sgf.sv = 5, sigf = 7, maxiter = 20, margin = 0.05, bound = 10, eig.tol = 1e-06, conv.tol = 1e-07, posd.tol = 1e-08 |
-|
-DeepSurv(Deeplearningsurvival model) |
-DeepSurv |
-deepsurv |
-survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
-|
-
-DeepHit(Deeplearningsurvival model) |
-
-DeepHit |
-
-deephit |
-
-survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
+|DeepSurv(Deeplearningsurvival model) |DeepSurv |deepsurv |survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
+|DeepHit(Deeplearningsurvival model) |DeepHit |deephit |survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
 
 Data table showing the methods used in this benchmark study. R packages and functions with parameters are listed.
