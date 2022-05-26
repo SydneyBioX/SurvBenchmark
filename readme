@@ -1,5 +1,8 @@
-This is the work for SurvBenchmark (202107 updated) and the associated paper can be found: XX (to be added). 
+This is the work for SurvBenchmark (202205 updated) and the associated paper can be found: doi (to be added). \\
+
 In this repo, all the high resolution figures related to the paper can be found under folder <figures>.
 The folder <functions> contains functions to run all methods.
 The github_example.R file gives an example to get the results using methods in <functions> on the Ovarian dataset. 
+
+
 The R package is available at https://github.com/yunwezhang/SurvBenchmark_package, on-going work will be updated continuously. 
