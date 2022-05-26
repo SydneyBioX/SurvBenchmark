@@ -11,5 +11,8 @@ The folder <figures_data> contains all figure data used to generate the figures 
 
 The github_example.R file gives an example to get the results using methods in <functions> on the Ovarian dataset. 
 
+For the datasets we used, please check this table:
+
+For the survival methods we benchmarked, please check this table:
 
 The R package is available at https://github.com/yunwezhang/SurvBenchmark_package, on-going work will be updated continuously. 
