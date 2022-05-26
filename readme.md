@@ -11,7 +11,8 @@ There are 16 datasets (https://github.com/SydneyBioX/SurvBenchmark/blob/main/tab
 
 | **Dataset (name used in this paper)** | **Number of observations** | **No. of variables** | **Type of data** | **Censoring rate(rounded to 4 decimalplaces)**|**Reference** |
 | --- | --- | --- | --- | --- |--- |
-| Melanoma\_itraq | 41 | 643 | Omics | 0.4146 | Wang,K.Y.X. et al. Cross-Platform Omics Prediction procedure: agame changer for implementing precision medicine in patientswithstage-IIImelanoma.bioRxiv2020.12.09.415927;doi:[https://doi.org/10.1101/2020.12.09.415927](https://doi.org/10.1101/2020.12.09.415927) |
+| Melanoma\_itraq | 41 | 643 | Omics | 0.4146 | Mactier, Swetlana et al. “Protein signatures correspond to survival outcomes of AJCC stage III melanoma patients.” Pigment cell & melanoma research vol. 27,6 (2014): 1106-16. doi:10.1111/pcmr.12290![image](https://user-images.githubusercontent.com/57333460/170583566-f669f792-7252-49b9-8605-933745d10edd.png)
+ |
 | Melanoma\_nano | 45 | 207 | Omics | 0.4222 | Wang,K.Y.X. et al. Cross-Platform Omics Prediction procedure: agame changer for implementing precision medicine in patientswithstage-IIImelanoma.bioRxiv2020.12.09.415927;doi:[https://doi.org/10.1101/2020.12.09.415927](https://doi.org/10.1101/2020.12.09.415927) |
 | Ovarian\_2 | 58 | 19818 | Omics | 0.3793 | Ganzfried,B.F.etal.(2013)curatedOvarianData:clinicallyannotateddatafortheovariancancertranscriptome.Database,2013. |
 | GE\_5 | 78 | 4753 | Omics | 0.5641 | van&#39;tVeer,L.J.etal.(2002)Geneexpressionprofilingpredictsclinical outcomeofbreast cancer.Nature,415,530–536. |
