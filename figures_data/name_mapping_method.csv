@@ -1,0 +1,2 @@
+Method name raw,cox1,cox2,cox3,cox4,pcox1,pcox2,pcox3,coxboost,gacox,gacoxboost,limmacoxboost,mtlr1,gamtlr,limmamtlr,rsf1,survivalsvm,deephit,deepsurv,dnnsurv1
+Method name in the paper,Cox,Cox_bw_p,Cox_bw_AIC,Cox_bw_BIC,Lasso_Cox,Ridge_Cox,EN_Cox,CoxBoost,Cox(GA),CoxBoost(GA),CoxBoost(DE),MTLR,MTLR(GA),MTLR(DE),RSF,SurvivalSVM,DeepHit,DeepSurv,DNNSurv
