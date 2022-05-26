@@ -7,7 +7,7 @@ This is the work for SurvBenchmark (202205 updated) and the associated paper can
 We develop a benchmarking design, SurvBenchmark, that evaluates a diverse collection of survival models for both clinical and omics datasets. SurvBenchmark not only focuses on classical approaches such as the Cox model, but it also evaluates state-of-art machine learning survival models. 
 There are 16 datasets and 20 survival methods benchmarked in this study. 
 
-########################################################################################
+##############################################################################
 
 # Files in this repo 
 
@@ -28,7 +28,7 @@ For the survival methods we benchmarked, please check Table2 in our paper, this 
 The R package is available at https://github.com/yunwezhang/SurvBenchmark_package, on-going work will be updated continuously. 
 
 
-#######################################################################################
+###############################################################################
 
 # Installation 
 
@@ -96,7 +96,7 @@ The comparison of survival models can be visualized using heatmap as the below e
 
 
 <img src="figures/figure2.pdf" align="center" width="400"/>
-
+[My image](yunwezhang.github.com/SurvBenchmark/figures/figure2.pdf)
 
 
 # Reference
