@@ -28,6 +28,34 @@ There are 16 datasets (https://github.com/SydneyBioX/SurvBenchmark/blob/main/tab
 | ANZ | 3323 | 40 | Clinical | 0.8739 | ANZDATA (https://www.anzdata.org.au/) |
 
 and 20 survival methods (https://github.com/SydneyBioX/SurvBenchmark/blob/main/tables/table2.docx) 
+**Table2.** Summary of methods used in this study
+
+| **Methodname** | **Methodnameinthispaper** | **Rfunctionname** | **Rpackagename** | **Parameters (default)** |
+| --- | --- | --- | --- | --- |
+| Cox | Cox | coxph | survival | NA |
+| Cox withbackwardeliminationusingAIC | Cox\_bw\_AIC | cph,fastbw | rms | rule=&quot;aic&quot;,sls=.05,k.aic=2 |
+| Coxwithbackwardeliminationusingpvalue | Cox\_bw\_p | cph,fastbw | rms | rule=&quot;p&quot;,sls=.05 |
+| Cox withbackwardeliminationusingBIC | Cox\_bw\_BIC | cph,fastbw | rms | rule=&quot;aic&quot;,sls=.05,k.aic=log(as.numeric(table(train$status)[2])) |
+| Lassocox (for clinical datasets) | Lasso\_Cox | penalized | penalized | Lambda1=1,lambda2=0 |
+| Ridgecox (for clinical datasets) | Ridge\_Cox | penalized | penalized | Lambda1=0,lambda2=1 |
+| Elasticnetcox (for clinical datasets) | EN\_Cox | penalized | penalized | Lambda1=1,lambda2=1 |
+| Lassocox (for omics datasets) | Lasso\_Cox | glmnet | glmnet | alpha=1,nfolds=5,type.measure=&quot;C&quot; |
+| Ridgecox (for omics datasets) | Ridge\_Cox | glmnet | glmnet | alpha=0,nfolds=5,type.measure=&quot;C&quot; |
+| Elasticnetcox (for omics datasets) | EN\_Cox | glmnet | glmnet | alpha=0.5,nfolds=5,type.measure=&quot;C&quot; |
+| Randomsurvivalforest | RSF | rfsrc | RandomSurvivalForest | Default:ntree=1000,mtry=10 |
+| Multitasklogisticregressionmethod | MTLR | mtlr | MTLR | C1=1 |
+|DNNSurv (Deeplearningsurvivalmodel) |DNNSurv | multiplefunctionsasinGithubcodes | DNNSurv|Default: no parameter arguments to be changed by users |
+| Boostingcoxmodel | CoxBoost | coxboost | CoxBoost | stepnumber=10, penalty number=100 |
+| Coxmodelwithgeneticalgorithmasfeatureselectionmethod | Cox (GA) | GenAlg | GenAlgo | n.features=10(foromics),n.features=4(forclinical),generation\_num=20 |
+| Multitasklogistic regressionmodelwithgenetic algorithmas featureselectionmethod | MTLR(GA) | GenAlg | GenAlgo | n.features=10 (foromics),n.features=4 (forclinical),generation\_num=20 |
+| Boostingcoxmodelwithgeneticalgorithmasfeatureselectionmethod | CoxBoost (GA) | GenAlg | GenAlgo | n.features=10(foromics),n.features=4(forclinical),generation\_num=20 |
+| Multitasklogisticregressionmodelwithrankingbasedmethodasfeatureselectionmeth | MTLR(DE) | lmFit,eBayes | limma | n.features=10(foromics),n.features=4(forclinical) |
+| Boostingcox modelwithrankingbasedmethodas feature selectionmethod | CoxBoost (DE) | lmFit,eBayes | limma | n.features=10(foromics),n.features=4(forclinical) |
+| Survival supportvectormachine | SurvivalSVM | survivalsvm | survivalsvm | Default: sgf.sv = 5, sigf = 7, maxiter = 20, margin = 0.05, bound = 10, eig.tol = 1e-06, conv.tol = 1e-07, posd.tol = 1e-08 |
+|DeepSurv(Deeplearningsurvival model) |DeepSurv |deepsurv |survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
+|DeepHit(Deeplearningsurvival model) |DeepHit |deephit |survivalmodels | Default:frac=0.3,activation=&quot;relu&quot;,num\_nodes=c(4L,8L,4L,2L),dropout=0.1,early\_stopping=TRUE,epochs=100L,batch\_size=32L |
+
+
 benchmarked in this study. 
 
 ##############################################################################
