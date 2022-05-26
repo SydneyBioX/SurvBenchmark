@@ -1,1 +1,3 @@
 This folder contains all data to generate the plots in our paper.
+
+This folder also contains two name mapping files <name_mapping_data> <name_mapping_method> for raw names and the names in the paper. 
