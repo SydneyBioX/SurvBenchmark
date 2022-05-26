@@ -96,7 +96,7 @@ The comparison of survival models can be visualized using heatmap as the below e
 
 
 <img src="figures/github_figure.png" align="center" width="400"/>
-[My image](yunwezhang.github.com/SurvBenchmark/figures/figure2.pdf)
+
 
 
 # Reference
