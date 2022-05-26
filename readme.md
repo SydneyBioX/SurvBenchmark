@@ -95,7 +95,7 @@ library(reticulate)
 The comparison of survival models can be visualized using heatmap as the below example.  
 
 
-<img src="figures/figure2.pdf" align="center" width="400"/>
+<img src="figures/github_figure.png" align="center" width="400"/>
 [My image](yunwezhang.github.com/SurvBenchmark/figures/figure2.pdf)
 
 
