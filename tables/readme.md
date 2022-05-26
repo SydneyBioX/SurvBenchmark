@@ -4,8 +4,10 @@ This file contains the tables for the datasets and methods we benchmarked.
 
 | **Datasetssummary** |
 | --- |
-| **Dataset (name usedinthispaper)** | **Number ofobservations** | **No. ofvariables** | **Type ofdata** | **Censoringrate(rounded to 4decimalplaces)** | **Reference** |
+| **Dataset (name usedinthispaper)** | **Number ofobservations** | **No. ofvariables** | **Type ofdata** | **Censoringrate(rounded to 4decimalplaces)** **Reference** |
+
 | Melanoma\_itraq | 41 | 642 | Omics | 0.4146 | Wang,K.Y.X. et al. Cross-Platform Omics Prediction procedure: agame changer for implementing precision medicine in patientswithstage-IIImelanoma.bioRxiv2020.12.09.415927;doi:[https://doi.org/10.1101/2020.12.09.415927](https://doi.org/10.1101/2020.12.09.415927) |
+
 | Melanoma\_nano | 45 | 206 | Omics | 0.4222 | Wang,K.Y.X. et al. Cross-Platform Omics Prediction procedure: agame changer for implementing precision medicine in patientswithstage-IIImelanoma.bioRxiv2020.12.09.415927;doi:[https://doi.org/10.1101/2020.12.09.415927](https://doi.org/10.1101/2020.12.09.415927) |
 | Ovarian\_2 | 58 | 19818 | Omics | 0.3793 | Ganzfried,B.F.etal.(2013)curatedOvarianData:clinicallyannotateddatafortheovariancancertranscriptome.Database,2013. |
 | GE\_5 | 78 | 4753 | Omics | 0.5641 | van&#39;tVeer,L.J.etal.(2002)Geneexpressionprofilingpredictsclinical outcomeofbreast cancer.Nature,415,530–536. |
