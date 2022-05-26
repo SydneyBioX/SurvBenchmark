@@ -23,4 +23,3 @@ This file contains the tables for the datasets and methods we benchmarked.
 | ANZ | 3323 | 40 | Clinical | 0.8739 | ANZDATA (https://www.anzdata.org.au/) |
 
 Data table showing the names of datasets used in this paper in the first column. Datasets are ordered by the number ofobservations(secondcolumn,fromsmallest to largest).Censoring rateisroundedto 4decimal places.
-
