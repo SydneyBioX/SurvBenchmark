@@ -78,7 +78,7 @@ For the datasets we used, please check this Table1 in our paper, this is under "
 
 For the survival methods we benchmarked, please check Table2 in our paper, this is under "tables" table2.
 
-The R package is available at https://github.com/yunwezhang/SurvBenchmark_package, on-going work will be updated continuously. 
+The R package is available at(https://github.com/SydneyBioX/SurvBenchmark_package), on-going work will be updated continuously. 
 
 
 ###############################################################################
