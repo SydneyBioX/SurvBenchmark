@@ -1,6 +1,9 @@
 This is the work for SurvBenchmark (202205 updated) and the associated paper can be found: doi (to be added). 
 
+########################################################################################
+
 Files in this repo: 
+
 In this repo, all the high resolution figures related to the paper can be found under folder <figures>.
 
 The folder <functions> contains functions to run all methods.
@@ -16,3 +19,20 @@ For the datasets we used, please check this Table1 in our paper, this is also un
 For the survival methods we benchmarked, please check Table2 in our paper, this is also under <tables> table2.
 
 The R package is available at https://github.com/yunwezhang/SurvBenchmark_package, on-going work will be updated continuously. 
+
+
+########################################################################################
+Copyright [2022] [Yunwei Zhang]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   
