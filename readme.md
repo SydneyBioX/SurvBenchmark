@@ -5,7 +5,7 @@ This is the work for SurvBenchmark (202205 updated) and the associated paper can
 
 # Introduction 
 We develop a benchmarking design, SurvBenchmark, that evaluates a diverse collection of survival models for both clinical and omics datasets. SurvBenchmark not only focuses on classical approaches such as the Cox model, but it also evaluates state-of-art machine learning survival models. 
-There are 16 datasets and 20 survival methods benchmarked in this study. 
+There are 16 datasets (https://github.com/SydneyBioX/SurvBenchmark/blob/main/tables/table1.docx) and 20 survival methods (https://github.com/SydneyBioX/SurvBenchmark/blob/main/tables/table2.docx) benchmarked in this study. 
 
 ##############################################################################
 
@@ -107,7 +107,7 @@ paper (to be added)
 # License
 
 ```r
-     Copyright [2022] [Yunwei Zhang]
+Copyright [2022] [Yunwei Zhang]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
