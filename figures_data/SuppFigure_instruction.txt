@@ -1,0 +1,7 @@
+Supp Figure 1, 3 ,4 data can be obtained from 16 .csv files for those 16 datasets.
+
+Supp Figure 1: Filter the column "Variable" with auc1, auc2,...to auc15
+
+Supp Figure 3: Filter the column "Variable" with unoc
+
+Supp Figure 4: Filter the column "Variable" with bs1
