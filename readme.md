@@ -1,7 +1,10 @@
 # SurvBenchmark: comprehensive benchmarking study of survival analysis methods using both omics data and clinical data
 
 
-This is the work for SurvBenchmark (202205 updated) and the associated paper can be found: Zhang, Yunwei & Wong, Germaine & Mann, Graham & Muller, Samuel & Yang, Jean. (2021). SurvBenchmark: comprehensive benchmarking study of survival analysis methods using both omics data and clinical data. 10.1101/2021.07.11.451967. 
+This is the work for SurvBenchmark (202205 updated) and the associated paper can be found: 
+```r
+Zhang, Yunwei & Wong, Germaine & Mann, Graham & Muller, Samuel & Yang, Jean. (2021). SurvBenchmark: comprehensive benchmarking study of survival analysis methods using both omics data and clinical data. 10.1101/2021.07.11.451967.
+```
 Please cite this paper if you would like to use the curated data.
 
 # Introduction 
